@@ -13,7 +13,6 @@ public class GestorTalleres {
             case "Teatro": cupos = 2; break;
             default: throw new IllegalArgumentException("Selecciona un taller válido.");
         }
-        // Restar los registros evita mantener dos estados que puedan descoordinarse.
         for (Inscripcion inscripcion : inscripciones) {
             if (inscripcion.getTaller().equals(taller)) { cupos--; }
         }
@@ -41,7 +40,6 @@ public class GestorTalleres {
     }
 
     public ArrayList<Inscripcion> obtenerInscripciones() {
-        // Entregar una copia impide cambiar la lista sin pasar por las validaciones.
         return new ArrayList<>(inscripciones);
     }
 }
